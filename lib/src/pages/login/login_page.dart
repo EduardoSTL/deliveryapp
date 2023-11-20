@@ -3,9 +3,7 @@ import 'package:deliveryapp/src/pages/login/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-//test commit
 class LoginPage extends StatelessWidget {
-  //const LoginPage({Key? key}) : super(key: key);
   LoginController con = Get.put(LoginController());
 
   @override
@@ -35,7 +33,7 @@ class LoginPage extends StatelessWidget {
 Widget _backgroudCover(BuildContext context){
   return Container(
     width: double.infinity,
-    height: MediaQuery.of(context).size.height * 0.4,
+    height: MediaQuery.of(context).size.height * 0.42,
     color: Colors.amber,
     
   );
@@ -85,55 +83,56 @@ Widget _boxForm(BuildContext context){
 
 Widget _textFieldEmail(){
   return Container(
-    margin: EdgeInsets.symmetric(horizontal: 40),
-    child: TextField(
+  margin: EdgeInsets.symmetric(horizontal: 40),
+  child: TextField(
     keyboardType: TextInputType.emailAddress,
     decoration: InputDecoration(
       hintText: 'Correo electronico',
       prefixIcon: Icon(Icons.mail)
 
     ),
-  )
+  ),
   );
-  
 }
 
 Widget _textFielPassword(){
   return Container(
-    margin: EdgeInsets.symmetric(horizontal: 40),
-    child: TextField(
+  margin: EdgeInsets.symmetric(horizontal: 40),  
+  child: TextField(    
     keyboardType: TextInputType.text,
     obscureText: true,
     decoration: InputDecoration(
-      hintText: 'Contraseña',
-      prefixIcon: Icon(Icons.lock)
+    hintText: 'Contraseña',
+    prefixIcon: Icon(Icons.lock)
+
     ),
-  )
+  ),
   );
 }
 
 Widget _buttonLogin(){
   return Container(
     width: double.infinity,
-    margin: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
-    child: ElevatedButton(
-      onPressed: (){},
-      style: ElevatedButton.styleFrom(
-        padding: EdgeInsets.symmetric(vertical: 15)
-      ),
-      child: Text(
-    'LOGIN',
+    margin: EdgeInsets.symmetric(horizontal: 40,vertical: 40 ),
+  child: ElevatedButton(
+    onPressed:(){},
+    style: ElevatedButton.styleFrom(
+      padding: EdgeInsets.symmetric(vertical: 15),
+    ),     
+    child: Text(
+      'LOGIN',
     style: TextStyle(
       color: Colors.black
-    ),)
     ),
+    )    
+  ),
   );
   
 }
 
 Widget _textYourInfo(){
   return Container(
-    margin: EdgeInsets.only(top: 40, bottom: 45),
+    margin: EdgeInsets.only(top: 40, bottom: 45), 
     child: Text(
       'Ingresa esta Informacion',
       style: TextStyle(
@@ -152,21 +151,21 @@ Widget _textDontHaveAccount(){
           'No Tienes Cuenta?',
           style: TextStyle(
             color: Colors.black,
-            fontSize: 17
+            fontSize: 17,
           ),
         ),
         SizedBox(width: 7),
           GestureDetector(
             onTap: () => con.goToRegisterPage(),
-            child: Text(
+          child: Text(
             'Registrate Aqui',
             style: TextStyle(
               color: Colors.amber,
               fontWeight: FontWeight.bold,
-              fontSize: 17
+              fontSize: 17,
             ),
-                  ),
           ),
+        ),
       ],
   );
 }

@@ -1,36 +1,30 @@
-import 'package:flutter/material.dart';
+
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-class LoginController extends GetxController{
+class LoginController extends GetxController {
 
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  TextEditingController lastnameController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
-  TextEditingController nameController = TextEditingController();
-  TextEditingController confirmPasswordController = TextEditingController();
 
-  void goToRegisterPage(){
+  void goToRegisterPage() {
     Get.toNamed('/register');
   }
 
   void login() {
     String email = emailController.text.trim();
-    String name = nameController.text.trim();
-    String lastname = lastnameController.text.trim();
-    String phone = phoneController.text.trim();
     String password = passwordController.text.trim();
-    String confirmPassword = confirmPasswordController.text.trim();
 
     print('Email ${email}');
     print('Password ${password}');
 
-    if (isValidForm(email, name, lastname, phone, password, confirmPassword)) {
-      Get.snackbar('Formulario valido', 'Estas listo para enviar la peticion HTTP');
+    if (isValidForm(email, password)) {
+      Get.snackbar('Formulario valido', 'Estas listo para enviar la peticion Http');
     }
   }
 
-  bool isValidForm(String email, String name, String lastname, String phone, String password, String confirmPassword){
+  bool isValidForm(String email, String password) {
+
     if (email.isEmpty) {
       Get.snackbar('Formulario no valido', 'Debes ingresar el email');
       return false;
@@ -48,4 +42,5 @@ class LoginController extends GetxController{
 
     return true;
   }
+
 }

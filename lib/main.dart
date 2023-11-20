@@ -9,7 +9,7 @@ void main() {
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}): super (key:key);
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -29,23 +29,23 @@ class _MyAppState extends State<MyApp> {
       title: 'Delivery App',
       initialRoute: '/',
       getPages: [
-        GetPage(name: '/', page: () => LoginPage()),
-        GetPage(name: '/register', page: () => const RegisterPage())
+        GetPage(name: '/', page: () =>  LoginPage()),
+        GetPage(name: '/register', page: () =>  RegisterPage())
       ],
       theme: ThemeData(
         primaryColor: Colors.amber,
         colorScheme: ColorScheme(
-          brightness: Brightness.light, 
-          primary: Colors.amber, 
-          onPrimary: Colors.grey,
-          secondary: Colors.amberAccent,
-          onSecondary: Colors.grey, 
-          error: Colors.grey, 
+          brightness:Brightness.light, 
+          primary: Colors.amber,      
+          secondary:Colors.amberAccent,
+          onPrimary: Colors.grey,            
+          error:Colors.grey, 
           onError: Colors.grey, 
+          onBackground:Colors.grey, 
+          onSecondary: Colors.grey, 
           background: Colors.grey, 
-          onBackground: Colors.grey,
           surface: Colors.grey, 
-          onSurface: Colors.grey
+          onSurface: Colors.grey 
           )
       ),
       navigatorKey: Get.key,
