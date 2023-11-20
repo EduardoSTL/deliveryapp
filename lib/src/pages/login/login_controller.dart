@@ -4,7 +4,11 @@ import 'package:get/get.dart';
 class LoginController extends GetxController{
 
   TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController= TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController lastnameController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
 
   void goToRegisterPage(){
     Get.toNamed('/register');
@@ -12,17 +16,21 @@ class LoginController extends GetxController{
 
   void login() {
     String email = emailController.text.trim();
+    String name = nameController.text.trim();
+    String lastname = lastnameController.text.trim();
+    String phone = phoneController.text.trim();
     String password = passwordController.text.trim();
+    String confirmPassword = confirmPasswordController.text.trim();
 
     print('Email ${email}');
     print('Password ${password}');
 
-    if (isValidForm(email, password)) {
+    if (isValidForm(email, name, lastname, phone, password, confirmPassword)) {
       Get.snackbar('Formulario valido', 'Estas listo para enviar la peticion HTTP');
     }
   }
 
-  bool isValidForm(String email, String password) {
+  bool isValidForm(String email, String name, String lastname, String phone, String password, String confirmPassword){
     if (email.isEmpty) {
       Get.snackbar('Formulario no valido', 'Debes ingresar el email');
       return false;
